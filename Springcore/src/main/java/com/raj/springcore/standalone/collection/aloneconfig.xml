@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    
+    
+    <!-- Standalone list -->
+    
+   
+    <util:list list-class="java.util.Vector" id="mybestfriends">
+    <value>Aman</value>
+    <value>raman</value>
+   <value>shyam</value> 
+    <value>ghanshyam</value>
+    </util:list>
+    
+    <!-- Standalone map -->
+    
+    <util:map map-class="java.util.TreeMap" id="fee">
+    <entry key ="spring framework" value="5000"/>
+    <entry key ="django framework" value="8000"/>
+    <entry key ="hibernate framework" value="6000"/>
+    
+    </util:map>
+    
+    <!-- standalone properties -->
+    
+    <util:properties  id="dbconfig">
+    <prop key="driver">com.mysql.jdbc.driver</prop>
+    <prop key="UserName">Rajendra</prop>
+    <prop key="Password">abc</prop>
+    <prop key="url">mysql:jdbc://localhost:3306//database</prop>
+    
+    
+    </util:properties>
+<bean class="com.raj.springcore.standalone.collection.Person" name ="person1">
+<property name="friends" ref="mybestfriends"/>
+<property name="feestructure" ref="fee"/>
+<property name="prop" ref="dbconfig"/>
+
+
+<!-- 2nd ways to define ref
+ <property name="friends">
+<ref bean="mybestfriends"/>
+
+</property>
+ -->
+</bean>
+
+
+
+
+</beans>
